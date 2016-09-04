@@ -1,3 +1,4 @@
-#Web app skeleton
- - the basic file structure using gulp and other plugins.
- - May be update or take a whole new approach using react in the coming days
+# Topgit app skeleton
+ - SAP Front end challenge
+ - Built using angularjs and material design lite
+ - Time frame of 12hrs
