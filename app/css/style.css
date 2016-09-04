@@ -1,0 +1,14 @@
+body {
+  background-color: darkgrey; }
+
+h4 {
+  color: #oobbcc; }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.title {
+  font-weight: 200;
+  font-size: 20px; }
