@@ -2,7 +2,7 @@
 
 angular
 	.module('topgitApp')
-	.controller('topGitController', topGitController);
+	.controller('HomeCtrl', topGitController);
 
 function topGitController(){
 	console.log('topGit is initialized');
