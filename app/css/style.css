@@ -1,14 +1,18 @@
 body {
-  background-color: darkgrey; }
+    background-color: darkgrey;
+    font-size: 16px;
+}
 
-h4 {
-  color: #oobbcc; }
+.fa-custom-logo {
+    font-size: 1.6em;
+}
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+.fa-custom {
+    font-size: 1.2em;
+    padding-right: 10px;
+}
 
-.title {
-  font-weight: 200;
-  font-size: 20px; }
+.topgit-title {
+    position: relative;
+    bottom: 2px;
+}
