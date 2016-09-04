@@ -1,3 +1,60 @@
-<div ng-controller="Homectrl as home">
-	<p>Home view</p>
+<div class="home" ng-controller="HomeCtrl as home">
+	<div class="home__search">
+		<!-- input field-->
+		<input  
+		autofocus="true" 
+		class="home__search__field" 
+		list="languages" 
+		type="search" 
+		ng-model="langField"
+		ng-blur="home.getGithubProjects()" 
+		placeholder="type language to search here..." 
+		name="lang-search" 
+		id="lang-search">
+		<datalist id="languages">
+			<option ng-repeat="lang in home.langList track by $index">{{lang}}</option>
+		</datalist>
+		<!--search results-->
+		<div class="errorDataMsg" ng-hide="home.gitSuccessFlag">
+			<figure>
+				<img class="errorDataMsg__logo" src="images/git404.jpg" alt="ajax error, nothing has been fetched from server">
+			</figure>
+			<p>No data to show yet, select a language first :)</p>
+		</div>
+		<div ng-show="home.gitSuccessFlag" class="result-card mdl-card mdl-shadow--2dp home__search-result-card" data-ng-repeat="project in home.gitProjectData">
+			<div class="result-card__1">
+				<img class="result-card__avatar" ng-src="{{project.owner.avatar_url}}" alt="">
+				<p class="result-card__1__title">{{project.name}}</p>
+				<p>{{project.description}}</p>
+			</div>
+			<div class="result-card__2">
+				<p class="result-card__p"><span class="fa fa-star"> {{project.stargazers_count}}</span></p>
+				<p class="result-card__p"><span class="fa fa-eye"> {{project.watchers_count}}</span></p>
+				<p class="result-card__p">{{project.language}}</p>
+				<a class="result-card__repo-link" ng-href="{{project.html_url}}" target="_blank"><span class="fa fa-gitub"> Go to repo</span></a>
+			</div>
+		</div>
+	</div>
+	<div class="home__search-filter">
+		<div class="home__search-filter__rate-limit">
+			<p class="home__search-filter__rate-limit__header"><span class="fa fa-exchange home__search-filter__rate-limit__icon"></span><span class="home__search-filer__rate-limit__title-text">Rate limit</span></p>
+			<p class="home__search-filter__rate-limit__data"> 8 of 10</p>
+		</div>
+		<div class="home__search-filter__stars">
+			<p class="home__search-filter__stars__header"><span class="fa fa-star home__search-filter__stars__icon"></span><span class="home__search-filter__rate-limit_title-text">Star ratings</span></p>
+			<div class="home__search-filter__stars__data"> 
+				<input 
+				ng-init="starRating=500" 
+				id="star-rating" 
+				class="home__search-filter__stars__data__slider" 
+				type="range" 
+				name="points" 
+				min="0" 
+				max="1000" 
+				ng-change="home.getGithubProjects()"
+				ng-model="starRating">
+				<span class="home__search-filter__stars__data__slider-count" ng-bind="starRating"></span>
+			</div>
+		</div>
+	</div>
 </div>
