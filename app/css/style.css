@@ -193,6 +193,10 @@ body {
     margin-right: 5px;
 }
 
+.home__search__toggle-btn {
+    display: none;
+}
+
 @media screen and (max-width: 800px) {
     .home__search__form {
         display: -webkit-box;
@@ -220,5 +224,11 @@ body {
     .home__search__results__sub-menu {
         display: -webkit-inline-box;
         display: -ms-inline-flexbox;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .home__search__form__field:last-child {
+        margin-bottom: 20px;
     }
 }

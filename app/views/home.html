@@ -21,6 +21,7 @@
 				<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect home__search__form__field__btn">Search</button>
 			</div>
 		</form>
+		<!-- Colored mini FAB button -->
 		<div class="home__search__results">
 			<div class="mdl-card mdl-shadow--2dp home__search__results__card" data-ng-repeat="project in home.gitProjectData track by $index">
 			  <div class="mdl-card__title home__search__results__card__title">
@@ -40,7 +41,7 @@
 			  </div>
 			  <div class="mdl-card__menu">
 			    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-			      <a ng-href="{{project.html_url}}" target="_blank" style="color:black !important;"><i class="material-icons">launch</i></a>
+			      <a ng-href="{{project.html_url}}" target="_blank" style="color:black !important;"><i class="fa fa-external-link"></i></a>
 			    </button>
 			  </div>
 			</div>

@@ -28,6 +28,12 @@ function topGitController($http,$scope,$rootScope){
 	vm.getLangList();
 
 	vm.getGithubProjects = function(){
+
+		 var toggleBtn = angular.element(document.querySelector('.home__search__form__field__btn'));
+
+		 toggleBtn.parent(this).parent(this).addClass('is-hidden');
+
+		 console.log(toggleBtn.parent(this).parent(this));
 			
 		 var githubUrl 		= "https://api.github.com/search/repositories";
 		 var langToGet 		= $scope.langField;
