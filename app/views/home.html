@@ -1,19 +1,24 @@
 <div class="home" ng-controller="HomeCtrl as home">
 	<div class="home__search">
 		<!-- input field-->
-		<input  
-		autofocus="true" 
-		class="home__search__field" 
-		list="languages" 
-		type="search" 
-		ng-model="langField"
-		ng-blur="home.getGithubProjects()" 
-		placeholder="type language to search here..." 
-		name="lang-search" 
-		id="lang-search">
-		<datalist id="languages">
-			<option ng-repeat="lang in home.langList track by $index">{{lang}}</option>
-		</datalist>
+		<form class="home_search__form">
+			<input  
+				autofocus="true" 
+				class="home__search__field" 
+				list="languages" 
+				type="search" 
+				ng-model="langField"
+				placeholder="type language to search here..." 
+				name="lang-search" 
+				id="lang-search">
+			<datalist id="languages">
+				<option ng-repeat="lang in home.langList track by $index">{{lang}}</option>
+			</datalist>
+			<!-- Accent-colored raised button with ripple -->
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+			  Button
+			</button>
+		</form>
 		<!--search results-->
 		<div class="errorDataMsg" ng-hide="home.gitSuccessFlag">
 			<figure>
@@ -36,11 +41,11 @@
 		</div>
 	</div>
 	<div class="home__search-filter">
-		<div class="home__search-filter__rate-limit mdl-shadow--2dp">
+		<div class="home__search-filter__rate-limit">
 			<p class="home__search-filter__rate-limit__header"><span class="fa fa-exchange home__search-filter__rate-limit__icon"></span><span class="home__search-filer__rate-limit__title-text">Rate limit</span></p>
 			<p class="home__search-filter__rate-limit__data"> 8 of 10</p>
 		</div>
-		<div class="home__search-filter__stars mdl-shadow--2dp">
+		<div class="home__search-filter__stars">
 			<p class="home__search-filter__stars__header"><span class="fa fa-star home__search-filter__stars__icon"></span><span class="home__search-filter__rate-limit_title-text">Star ratings</span></p>
 			<div class="home__search-filter__stars__data"> 
 				<input 

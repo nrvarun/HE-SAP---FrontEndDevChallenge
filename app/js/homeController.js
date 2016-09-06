@@ -16,7 +16,7 @@ function topGitController($http,$scope,$rootScope){
 	vm.gitSuccessFlag		= false; 
 	vm.starRatings			= 500;
 
-	vm.getLangList =  function(){
+	/*vm.getLangList =  function(){
 		
 		$http
 			.get(langUrl)
@@ -25,7 +25,7 @@ function topGitController($http,$scope,$rootScope){
 			});
 	};
 
-	vm.getLangList();
+	vm.getLangList();*/
 
 	vm.getGithubProjects = function(){
 			
