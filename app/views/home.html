@@ -4,7 +4,7 @@
 		<form class="home__search__form" data-ng-submit="home.getGithubProjects()">
 			<div class="home__search__form__field">
 			  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-			    <input class="mdl-textfield__input" autofocus type="search" list="lang-list" id="search-lang" required ng-model="langField" placeholder="search ( by language )">
+			    <input class="mdl-textfield__input" style="outline-color: rgba(255, 255, 255, 0);" autofocus type="search" list="lang-list" id="search-lang" required ng-model="langField" placeholder="search ( by language )">
 			    <datalist id="lang-list">
 			    	<option ng-repeat="lang in home.langList track by $index" ng-value="lang">{{lang}}</option>
 			    </datalist>

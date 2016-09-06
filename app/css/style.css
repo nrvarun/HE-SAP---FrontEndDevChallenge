@@ -46,7 +46,7 @@ body {
 
 .topgit-title {
     position: relative;
-    bottom: 2px;
+    bottom: 10px;
     color: green;
 }
 
@@ -55,8 +55,8 @@ body {
     font-weight: 100;
     color: #8bc34a !important;
     position: relative;
-    bottom: 2px;
-    color: black !important;
+    bottom: 11px;
+    color: lightgreen !important;
 }
 
 .home {
