@@ -34,8 +34,6 @@ function topGitController($http,$scope,$rootScope){
 		 var stars 	   		= $scope.starRating;
 		 var API_PATH  		= githubUrl+'?q='+'language:'+langToGet+'&stars:>='+stars; 	 
 
-		 $rootScope.lang 	= $scope.langField;
-
 		 console.log(githubUrl+'?q='+'stars:>='+stars+'&'+'language:'+langToGet);
 
 		 $http
@@ -43,13 +41,13 @@ function topGitController($http,$scope,$rootScope){
 		 	.then(gitSuccess,gitError);
 
 		 function gitSuccess(res){
-		 		console.log(res.data);
 
 		 		vm.gitSuccessFlag 	= true;
-		 		$rootScope.repos 	= res.data.length;
 		 		vm.gitProjectData 	= res.data.items;
+
+		 		$scope.repoCount  	= res.data.items.length;
 		 		
-		 		console.log(res.data.items[0]);
+		 		console.log('X-RateLimit-Limit : '+res.headers('X-RateLimit-Limit')+', X-RateLimit-Remaining : '+res.headers('X-RateLimit-Remaining'));
 		 }
 
 		 function gitError(res){
@@ -60,7 +58,7 @@ function topGitController($http,$scope,$rootScope){
 
 };
 
-topGitController.$inject = ['$http','$scope','$rootScope'];
+topGitController.$inject = ['$http','$scope'];
 
 angular.module('topgitApp')
 	   .directive('input', function() {

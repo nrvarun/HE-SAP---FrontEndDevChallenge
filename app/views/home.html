@@ -1,59 +1,48 @@
 <div class="home" ng-controller="HomeCtrl as home">
 	<div class="home__search">
 		<!-- input field-->
-		<input  
-		autofocus="true" 
-		class="home__search__field" 
-		list="languages" 
-		type="search" 
-		ng-model="langField"
-		ng-blur="home.getGithubProjects()" 
-		placeholder="type language to search here..." 
-		name="lang-search" 
-		id="lang-search">
-		<datalist id="languages">
-			<option ng-repeat="lang in home.langList track by $index">{{lang}}</option>
-		</datalist>
-		<!--search results-->
-		<div class="errorDataMsg" ng-hide="home.gitSuccessFlag">
-			<figure>
-				<img class="errorDataMsg__logo" src="images/git404.jpg" alt="ajax error, nothing has been fetched from server">
-			</figure>
-			<p>No data to show yet, select a language first :)</p>
-		</div>
-		<div ng-show="home.gitSuccessFlag" class="result-card mdl-card mdl-shadow--2dp home__search-result-card" data-ng-repeat="project in home.gitProjectData">
-			<div class="result-card__1">
-				<img class="result-card__avatar" ng-src="{{project.owner.avatar_url}}" alt="">
-				<p class="result-card__1__title">{{project.name}}</p>
-				<p>{{project.description}}</p>
+		<form class="home__search__form" data-ng-submit="home.getGithubProjects()">
+			<div class="home__search__form__field">
+			  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input" autofocus type="search" list="lang-list" id="search-lang" required ng-model="langField" placeholder="search ( by language )">
+			    <datalist id="lang-list">
+			    	<option ng-repeat="lang in home.langList track by $index" ng-value="lang">{{lang}}</option>
+			    </datalist>
+			    <label class="mdl-textfield__label" for="search-lang"></label>
+			  </div>
 			</div>
-			<div class="result-card__2">
-				<p class="result-card__p"><span class="fa fa-star"> {{project.stargazers_count}}</span></p>
-				<p class="result-card__p"><span class="fa fa-eye"> {{project.watchers_count}}</span></p>
-				<p class="result-card__p">{{project.language}}</p>
-				<a class="result-card__repo-link" ng-href="{{project.html_url}}" target="_blank"><span class="fa fa-gitub"> Go to repo</span></a>
+			<div class="home__search__form__field">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label home__search__form__field__slider">
+				    <input ng-init="starRatingRange=500" class="mdl-slider mdl-js-slider" required type="range" min="0" max="1000" ng-model="starRating" value="500" tabindex="0">
+				</div>	
+				<span class="home__search__form__field__slider__value" ng-bind="starRating"></span>
 			</div>
-		</div>
-	</div>
-	<div class="home__search-filter">
-		<div class="home__search-filter__rate-limit mdl-shadow--2dp">
-			<p class="home__search-filter__rate-limit__header"><span class="fa fa-exchange home__search-filter__rate-limit__icon"></span><span class="home__search-filer__rate-limit__title-text">Rate limit</span></p>
-			<p class="home__search-filter__rate-limit__data"> 8 of 10</p>
-		</div>
-		<div class="home__search-filter__stars mdl-shadow--2dp">
-			<p class="home__search-filter__stars__header"><span class="fa fa-star home__search-filter__stars__icon"></span><span class="home__search-filter__rate-limit_title-text">Star ratings</span></p>
-			<div class="home__search-filter__stars__data"> 
-				<input 
-				ng-init="starRating=500" 
-				id="star-rating" 
-				class="home__search-filter__stars__data__slider" 
-				type="range" 
-				name="points" 
-				min="0" 
-				max="1000" 
-				ng-change="home.getGithubProjects()"
-				ng-model="starRating">
-				<span class="home__search-filter__stars__data__slider-count" ng-bind="starRating"></span>
+			<div class="home__search__form__field">
+				<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect home__search__form__field__btn">Search</button>
+			</div>
+		</form>
+		<div class="home__search__results">
+			<div class="mdl-card mdl-shadow--2dp home__search__results__card" data-ng-repeat="project in home.gitProjectData track by $index">
+			  <div class="mdl-card__title home__search__results__card__title">
+			    <h2 class="mdl-card__title-text">{{project.name}}</h2>
+			  </div>
+			  <div class="mdl-card__title home__search__results__card__img-container">
+			    <div class="mdl-card__title-text"><span><img class="home__search__results__card__avatar" ng-src="{{project.owner.avatar_url}}" alt=""></div>
+			  </div>
+			  <div class="mdl-card__supporting-text">{{project.description}}</div>
+			  <div class="mdl-card__actions mdl-card--border home__search__results__sub-menu">
+			    <p class="home__search__results__sub-menu__item"><span><i class="fa fa-star"></i></span>{{project.watchers_count}}</p>
+			    <p class="home__search__results__sub-menu__item"><span><i class="fa fa-eye"></i></span>{{project.stargazers_count}}</p>
+			    <p class="home__search__results__sub-menu__item"><span><i class="fa fa-code-fork"></i></span>{{project.forks_count}}</p>
+			    <p class="home__search__results__sub-menu__item">{{project.language}}</p>
+			    <p class="home__search__results__sub-menu__item"><span><i class="fa fa-calendar-o"></i></span>{{ project.created_at | date: shortDate }}</p>
+			    <p></p>
+			  </div>
+			  <div class="mdl-card__menu">
+			    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+			      <a ng-href="{{project.html_url}}" target="_blank" style="color:black !important;"><i class="material-icons">launch</i></a>
+			    </button>
+			  </div>
 			</div>
 		</div>
 	</div>
