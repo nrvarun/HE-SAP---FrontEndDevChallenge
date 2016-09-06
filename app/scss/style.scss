@@ -2,6 +2,21 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+::-webkit-input-placeholder {
+   color: darkgoldenrod;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: darkgoldenrod;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: darkgoldenrod;  
+}
+
+:-ms-input-placeholder {  
+   color: darkgoldenrod;  
+}
 
 body {
     font-size: 16px;
@@ -107,6 +122,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 60%;
+    height: auto;
+    margin-bottom: 20px;
 }
 .home__search__results__card__avatar {
     width: 70px;
