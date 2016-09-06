@@ -151,3 +151,22 @@ body {
     margin-right: 5px;
 }
 
+@media screen and (max-width: 800px) {
+.home__search__form {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    width: 100vw;
+    flex-direction: column;
+    }
+.home__search__results__card {
+    margin-top: 10px;
+    width: 80vw;
+    height: auto;
+    margin-bottom: 20px;
+}
+.home__search__results__sub-menu {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+}
+}

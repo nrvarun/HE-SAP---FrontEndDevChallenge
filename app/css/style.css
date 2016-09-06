@@ -192,3 +192,33 @@ body {
 .home__search__results__sub-menu__item span {
     margin-right: 5px;
 }
+
+@media screen and (max-width: 800px) {
+    .home__search__form {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%;
+        width: 100vw;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .home__search__results__card {
+        margin-top: 10px;
+        width: 80vw;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .home__search__results__sub-menu {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+    }
+}
