@@ -9,29 +9,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.brown-red.min.css" />
         <link rel="author" href="humans.txt">
-        <!-- inject:css -->
-        <link rel="stylesheet" href="css/style.css">
-        <!-- endinject -->
+        <link rel="stylesheet" href="/css/style.css">
+
     </head>
     <body ng-app="topgitApp">
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <header class="mdl-layout__header">
+          <header class="mdl-layout__header topgit-header">
             <div class="mdl-layout__header-row">
-              <span class="mdl-layout-title">Title</span>
+              <span class="mdl-layout-title"><span class="fa fa-github fa-custom-logo"></span> <span class="topgit-title">TopGit - </span><span class="topgit-sub-title">finding the best github projects</span></span>
               <div class="mdl-layout-spacer"></div>
-              <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="">Home</a>
-                <a class="mdl-navigation__link" href="">About</a>
-              </nav>
             </div>
           </header>
-          <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
-            <nav class="mdl-navigation">
-              <a class="mdl-navigation__link" href="">Link</a>
-              <a class="mdl-navigation__link" href="">Link</a>
-            </nav>
-          </div>
           <main class="mdl-layout__content">
             <div class="page-content" ng-view="">
             </div>
@@ -43,8 +31,8 @@
     <<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
 
-    <!-- inject:js -->
-    <script src="js/app.js"></script>
-    <script src="js/main.js"></script>
-    <!-- endinject -->
+    <script src="/js/app.js"></script>
+    <script src="/js/appConfig.js"></script>
+    <script src="/js/homeController.js"></script>
+
 </html>

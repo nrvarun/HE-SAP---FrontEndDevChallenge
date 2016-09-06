@@ -8,12 +8,7 @@ function configTopGit($routeProvider){
 
 	$routeProvider
 		.when('/', {
-			templateUrl	: 'views/home.html',
-			controller 	: 'HomeCtrl'
-		})
-		.when('/about', {
-			templateUrl	: 'views/about',
-			controller 	: 'AboutCtrl'
+			templateUrl	: 'views/home.html'
 		})
 		.otherwise({ redirectTo: '/' });
 
