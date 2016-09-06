@@ -44,8 +44,10 @@ function topGitController($http,$scope,$rootScope){
 
 		 		vm.gitSuccessFlag 	= true;
 		 		vm.gitProjectData 	= res.data.items;
+
+		 		$scope.repoCount  	= res.data.items.length;
 		 		
-		 		console.log(res.data.items[0].length);
+		 		console.log('X-RateLimit-Limit : '+res.headers('X-RateLimit-Limit')+', X-RateLimit-Remaining : '+res.headers('X-RateLimit-Remaining'));
 		 }
 
 		 function gitError(res){
