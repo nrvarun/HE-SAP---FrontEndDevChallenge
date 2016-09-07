@@ -60,11 +60,8 @@ body {
 }
 
 .home {
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
 }
@@ -75,12 +72,10 @@ body {
 }
 
 .home__search__form {
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     width: 100vw;
     padding: 0 100px;
-    -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     border-bottom: 1px solid darkgoldenrod;
@@ -88,7 +83,6 @@ body {
 }
 
 .home__search__form__field {
-    -webkit-box-flex: 1;
     -ms-flex: 1 1;
     flex: 1 1;
     text-align: center;
@@ -134,17 +128,12 @@ body {
 }
 
 .home__search__results {
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
 }
@@ -177,13 +166,11 @@ body {
 }
 
 .home__search__results__sub-menu {
-    display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
 }
 
 .home__search__results__sub-menu__item {
-    display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     padding: 0 10px;
@@ -199,17 +186,13 @@ body {
 
 @media screen and (max-width: 800px) {
     .home__search__form {
-        display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        -webkit-box-flex: 1;
         -ms-flex: 1 1 100%;
         flex: 1 1 100%;
         width: 100vw;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
     }
@@ -222,7 +205,6 @@ body {
     }
 
     .home__search__results__sub-menu {
-        display: -webkit-inline-box;
         display: -ms-inline-flexbox;
     }
 }
