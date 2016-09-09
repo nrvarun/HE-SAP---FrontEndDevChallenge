@@ -17,6 +17,16 @@
 :-ms-input-placeholder {  
    color: darkgoldenrod;  
 }
+input[list="languages"] {
+      width: 12em;
+      border: none;
+      background: #eee;
+    }
+select {
+  width: 12em;
+  margin: 0;
+  margin-left: -12.75em;
+}
 
 body {
     font-size: 16px;
@@ -24,7 +34,10 @@ body {
     background-image: url('../images/bgimg.png');
 
 }
-
+.mdl-card__actions.mdl-card--border {
+    border-top: 1px solid rgba(0,0,0,.1);
+    background-color: ghostwhite;
+}
 .fa-custom-logo {
     font-size: 2.2em;
     color: grey;
@@ -46,11 +59,11 @@ body {
     position: relative;
     bottom: 10px;
     color: green;
-    font-size: 100%;
+    font-size: 3.5vmin;
 }
 
 .topgit-sub-title {
-    font-size: 0.8em;
+    font-size: 2.5vmin;
     font-weight: 100;
     color: #8bc34a !important;
     position: relative;
@@ -180,5 +193,10 @@ body {
     .home__search__form__field:last-child {
         margin-bottom: 20px;
 
+    }
+    .home__search__form__field {
+        flex: 1 1;
+        text-align: center;
+        padding: 0px;
     }
 }
