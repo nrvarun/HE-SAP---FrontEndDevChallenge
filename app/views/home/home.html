@@ -26,6 +26,12 @@
 		<!-- Colored mini FAB button -->
 		<div class="home__search__results">
 			<!-- Card start -->
+			<div data-ng-show="home.noProjectDataFlag" class="home__search__results__error">
+				<figure>
+					<img src="../../images/git404.jpg" alt="No project retrieved message">
+				</figure>	
+				<p class="home__search__results__error_msg">No data to show :(</p>
+			</div>
 			<project-card></project-card>
 			<!-- Card end -->
 		</div>

@@ -168,7 +168,17 @@ body {
 .home__search__toggle-btn {
     display: none;
 }
-
+.home__search__results__error {
+    display: block;
+    flex:  1 1 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
 @media screen and (max-width: 800px) {
 .home__search__form {
     display: flex;

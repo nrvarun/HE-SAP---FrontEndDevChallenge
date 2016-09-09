@@ -16,6 +16,8 @@ function topGitController($http,$scope,$rootScope){
 	vm.gitProjectData 		= [];
 	
 	vm.gitSuccessFlag		= false; 
+	vm.noProjectDataFlag    = true;
+
 	vm.starRatings			= 500;
 
 	vm.getLangList =  function(){
@@ -37,10 +39,10 @@ function topGitController($http,$scope,$rootScope){
 
 		 console.log(toggleBtn.parent(this).parent(this));
 			
-		 var githubUrl 		= "https://api.github.com/search/repositories";
-		 var langToGet 		= $scope.langField;
-		 var stars 	   		= $scope.starRating;
-		 var API_PATH  		= githubUrl+'?q='+'language:'+langToGet+'&stars:>='+stars; 	 
+		 var githubUrl 			= "https://api.github.com/search/repositories";
+		 var langToGet 			= $scope.langField;
+		 var stars 	   			= $scope.starRating;
+		 var API_PATH  			= githubUrl+'?q='+'language:'+langToGet+'&stars:>='+stars; 	 
 
 		 console.log(githubUrl+'?q='+'stars:>='+stars+'&'+'language:'+langToGet);
 
@@ -54,6 +56,8 @@ function topGitController($http,$scope,$rootScope){
 		 		vm.gitProjectData 	= res.data.items;
 
 		 		$scope.repoCount  	= res.data.items.length;
+
+		 		vm.noProjectDataFlag    = false;
 		 		
 		 		console.log('X-RateLimit-Limit : '+res.headers('X-RateLimit-Limit')+', X-RateLimit-Remaining : '+res.headers('X-RateLimit-Remaining'));
 		 }
