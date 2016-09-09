@@ -1,3 +1,5 @@
+(function(){
+
 'use strict';
 
 angular
@@ -20,3 +22,5 @@ function mainController ($scope) {
 }
 
 mainController.$inject = ['$scope'];
+	
+})();

@@ -1,4 +1,6 @@
-'use strict';
+(function(){
+
+	'use strict';
 
 angular
 	.module('topgitApp')
@@ -58,6 +60,7 @@ function topGitController($http,$scope,$rootScope){
 
 		 function gitError(res){
 		 	console.log('Error retreiving data');
+		 	alert(res.data.errors[0].message);
 		 }
 
 	}
@@ -78,3 +81,5 @@ angular.module('topgitApp')
 					    }
 					  };
 					});
+
+})();

@@ -1,6 +1,10 @@
-angular
+(function(){
+
+	angular
 	.module('topgitApp')
-	.directive('projectCard', [function () {
+	.directive('projectCard', projectCard);
+
+	function  projectCard () {
 		return {
 			restrict: 'E',
 			transclude: false,
@@ -9,4 +13,6 @@ angular
 				console.log('project card directive is running.');
 			}
 		};
-	}])
+	};
+
+})();
