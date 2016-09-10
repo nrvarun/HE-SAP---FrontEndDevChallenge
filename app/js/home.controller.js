@@ -35,7 +35,6 @@ function topGitController($http,$scope,$rootScope){
 
 	vm.paginate = function(){
 		vm.pageCount += 1;
-		alert(vm.pageCount);
 		vm.getGithubProjects(vm.pageCount);		
 	
 	};
@@ -64,8 +63,6 @@ function topGitController($http,$scope,$rootScope){
 
 		 		vm.gitSuccessFlag 	= true;
 		 		vm.limitCount 		= vm.limitCount+res.data.items.length;
-
-		 		alert(vm.limitCount);
 
 		 		var ajaxData 		= res.data.items;
 		 		var ajaxDataLen 	= res.data.items.length;
