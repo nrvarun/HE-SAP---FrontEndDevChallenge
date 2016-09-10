@@ -1,15 +1,19 @@
-'use strict';
+(function(){
 
-angular
-	.module('topgitApp')
-	.config(configTopGit);
+	'use strict';
 
-function configTopGit($routeProvider){
+	angular
+		.module('topgitApp')
+		.config(configTopGit);
 
-	$routeProvider
-		.when('/', {
-			templateUrl	: '../views/home/home.html'
-		})
-		.otherwise({ redirectTo: '/' });
+	function configTopGit($routeProvider){
 
-}
+		$routeProvider
+			.when('/', {
+				templateUrl	: '../views/home/home.html'
+			})
+			.otherwise({ redirectTo: '/' });
+
+	}
+
+})()

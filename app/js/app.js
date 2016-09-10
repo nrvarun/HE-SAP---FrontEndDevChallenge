@@ -1,4 +1,8 @@
-'use strict';
+(function(){
 
-angular
-	.module('topgitApp',['ngRoute']);
+	'use strict';
+
+	angular
+		.module('topgitApp',['ngRoute']);
+
+})();
