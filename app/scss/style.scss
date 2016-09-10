@@ -184,18 +184,20 @@ body {
     display: flex;
     justify-content:center;
     align-content:center;
+    margin-bottom: 40px
 }
-.home__search__results__pagination-btn:first-child {
+.home__search__results__pagination-btn{
     flex-grow:1;
     justify-content: flex-start;
-    width: 40px;
-    margin-left: 20px;
+    width: auto;
+    margin-right: 40px;
+}
+.loader-spinner {
+    margin-left: 10px;
 }
 .is-hidden {
     display: none !important;
-}
-.is-active {
-    display: flex;
+    transition: all 2s ease 0s;
 }
 .topgit-header__sbar-toggle-btn {
         display: none;

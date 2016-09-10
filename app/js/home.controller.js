@@ -19,6 +19,8 @@ function topGitController($http,$scope,$rootScope){
 	vm.noProjectDataFlag    = true;
 
 	vm.starRatings			= 500;
+	vm.pageCount			= 1;
+	vm.limitCount			= 0;
 
 	vm.getLangList =  function(){
 		
@@ -31,7 +33,14 @@ function topGitController($http,$scope,$rootScope){
 
 	vm.getLangList();
 
-	vm.getGithubProjects = function(){
+	vm.paginate = function(){
+		vm.pageCount += 1;
+		alert(vm.pageCount);
+		vm.getGithubProjects(vm.pageCount);		
+	
+	};
+
+	vm.getGithubProjects = function(count){
 
 		 var toggleBtn = angular.element(document.querySelector('.home__search__form__field__btn'));
 
@@ -42,9 +51,10 @@ function topGitController($http,$scope,$rootScope){
 		 var githubUrl 			= "https://api.github.com/search/repositories";
 		 var langToGet 			= $scope.langField;
 		 var stars 	   			= $scope.starRating;
-		 var API_PATH  			= githubUrl+'?q='+'language:'+langToGet+'&stars:>='+stars; 	 
+		 var pageCount          = $scope.pageCount;
+		 var API_PATH  			= githubUrl+'?q='+'language:'+langToGet+'&stars:>='+stars+'&page='+count; 	 
 
-		 console.log(githubUrl+'?q='+'stars:>='+stars+'&'+'language:'+langToGet);
+		 console.log(API_PATH);
 
 		 $http
 		 	.get(API_PATH)
@@ -53,13 +63,25 @@ function topGitController($http,$scope,$rootScope){
 		 function gitSuccess(res){
 
 		 		vm.gitSuccessFlag 	= true;
-		 		vm.gitProjectData 	= res.data.items;
+		 		vm.limitCount 		= vm.limitCount+res.data.items.length;
+
+		 		alert(vm.limitCount);
+
+		 		var ajaxData 		= res.data.items;
+		 		var ajaxDataLen 	= res.data.items.length;
+
+		 		for (var i=0; i<ajaxDataLen; i++){
+				    vm.gitProjectData.push(ajaxData[i]);
+				}
 
 		 		$scope.repoCount  	= res.data.items.length;
 
 		 		vm.noProjectDataFlag    = false;
 
-		 		console.log(res.headers('Link'));
+		 		console.log(vm.gitProjectData);
+		 		console.log(res.headers('Link').split(' ')[0]);
+		 		console.log(res.headers('Link').split(' ')[2]);
+
 		 		console.log('X-RateLimit-Limit : '+res.headers('X-RateLimit-Limit')+', X-RateLimit-Remaining : '+res.headers('X-RateLimit-Remaining'));
 		 }
 
