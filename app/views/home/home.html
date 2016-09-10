@@ -1,7 +1,7 @@
 <div class="home" ng-controller="HomeCtrl as home">
 	<div class="home__search">
 		<!-- input field-->
-		<form class="home__search__form" data-ng-submit="home.getGithubProjects()">
+		<form id="home-search-form" class="home__search__form" data-ng-submit="home.getGithubProjects()">
 			<div class="home__search__form__field">
 			  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 			    <input class="mdl-textfield__input searchLangField" style="outline-color: rgba(255, 255, 255, 0);" autofocus type="search" list="lang-list" id="searchLang" required ng-model="langField" placeholder="search ( by language )">
@@ -25,15 +25,19 @@
 		</form>
 		<!-- Colored mini FAB button -->
 		<div class="home__search__results">
-			<!-- Card start -->
 			<div data-ng-show="home.noProjectDataFlag" class="home__search__results__error">
 				<figure>
 					<img src="../../images/git404.jpg" alt="No project retrieved message">
 				</figure>	
 				<p class="home__search__results__error_msg">No data to show :(</p>
 			</div>
+			<!-- Card start -->
 			<project-card></project-card>
 			<!-- Card end -->
+			<div data-ng-hide="home.noProjectDataFlag" class="home__search__results__pagination">
+				<div class="home__search__results__pagination-btn mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised"><i class="fa fa-arrow-left"></i></div>
+				<div class="home__search__results__pagination-btn mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised"><i class="fa fa-arrow-right"></i></div>	
+			</div>
 		</div>
 	</div>
 </div>

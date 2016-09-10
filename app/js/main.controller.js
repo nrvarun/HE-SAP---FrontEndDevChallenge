@@ -15,9 +15,15 @@ function mainController ($scope) {
 	 }
 
 	 $scope.repoCount = 0;
+	 $scope.isActive  = false;
 
 	 if ($scope.repoCount < 0) {
 	 	$scope.repoCount = 0;
+	 }
+
+	 $scope.toggleSearchBar = function(){
+	 	var sbar  = angular.element(document.querySelector('#home-search-form'));
+	 	sbar.toggleClass('is-hidden');
 	 }
 }
 

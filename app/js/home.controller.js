@@ -58,7 +58,8 @@ function topGitController($http,$scope,$rootScope){
 		 		$scope.repoCount  	= res.data.items.length;
 
 		 		vm.noProjectDataFlag    = false;
-		 		
+
+		 		console.log(res.headers('Link'));
 		 		console.log('X-RateLimit-Limit : '+res.headers('X-RateLimit-Limit')+', X-RateLimit-Remaining : '+res.headers('X-RateLimit-Remaining'));
 		 }
 
