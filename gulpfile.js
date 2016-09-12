@@ -10,8 +10,11 @@ var autoprefixer      = require('gulp-autoprefixer');
 var cssbeautify       = require('gulp-cssbeautify');
 var uncss             = require('gulp-uncss');
 var gulpif            = require('gulp-if');
-var cssnano           = require('gulp-cssnano');
+var jsmin             = require('gulp-jsmin');
+var cssmin            = require('gulp-cssmin');
+var rename            = require('gulp-rename');
 var uglify            = require('gulp-uglify');
+var concat            = require('gulp-concat');
 
 var paths             = {
                              html           : ['./app/**/*.html'],
@@ -65,7 +68,8 @@ gulp.task('watch',['browserSync'],function(){
 gulp.task('copy', function(){
   gulp.src(['app/**/*.*',
             '!app/scss/*.*',
-            '!app/css/*.*'
+            '!app/css/*.*',
+            '!app/js/**/*.*'
           ])
         .pipe(gulp.dest('dist'));
 })
@@ -82,19 +86,28 @@ gulp.task('uncss', function(){
       .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('useref', function(){
+/*gulp.task('useref', function(){
   return gulp.src('index.html')
     .pipe(useref())
-    .pipe(gulpif('*.js',uglify()))
+    .pipe(gulpif('*.*.js',uglify())
     .pipe(gulp.dest('dist'));
+});*/
+
+gulp.task('jsmin',function(){
+  gulp.src(['app/**/*.js','app/**/*.*.js'])
+      .pipe(jsmin())
+      .pipe(concat('app.js'))
+      .pipe(rename({suffix: '.min'}))
+      .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('cssmin', function(){
      gulp.src('app/css/*.css')
-          .pipe(cssnano())
+          .pipe(cssmin())
+          .pipe(rename({suffix: '.min'}))
           .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('prod',['copy','useref','uncss','cssmin'], function(){
+gulp.task('prod',['copy','uncss','cssmin','jsmin'], function(){
   console.log('Production work is almost done :)');
 });
