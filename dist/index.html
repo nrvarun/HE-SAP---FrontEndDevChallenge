@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Top git - finding the best github projects</title>
+        <link rel='icon' href='favicon.ico'/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.brown-red.min.css" />
+        <link rel="author" href="humans.txt">
+        <link rel="stylesheet" href="/css/style.min.css">
+         <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-83994038-1', 'auto');
+          ga('send', 'pageview');
+
+        </script> 
+    </head>
+    <body ng-app="topgitApp" ng-controller="MainCtrl as main">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header topgit-header">
+            <div class="mdl-layout__header-row">
+              <span class="mdl-layout-title"><span class="fa fa-github fa-custom-logo"></span> <span class="topgit-title">TopGit - </span><span class="topgit-sub-title">finding the best github projects</span></span>
+              <div class="mdl-layout-spacer"></div>
+              <button id="sbar-toggle-btn" data-ng-click="toggleSearchBar()" class="mdl-button mdl-js-button mdl-js-ripple-effect topgit-header__sbar-toggle-btn"><i class="fa fa-bars"></i></button>
+            </div>
+          </header>
+          <main class="mdl-layout__content topgit__main">
+            <div class="page-content" ng-view="">
+            </div>
+          </main>
+        </div>
+    </body>
+        
+    <script async defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+    
+    <script defer src="js/app.min.js"></script>
+    <script src="http://www.google-analytics.com/analytics.js"></script>
+</html>

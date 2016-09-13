@@ -1,0 +1,42 @@
+<div class="home" ng-controller="HomeCtrl as home">
+	<div class="home__search">
+		<!-- input field-->
+		<form id="home-search-form" class="home__search__form" data-ng-submit="home.getGithubProjects(home.pageCount)">
+			<div class="home__search__form__field">
+			  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input searchLangField" style="outline-color: rgba(255, 255, 255, 0);" autofocus type="search" list="lang-list" id="searchLang" required ng-model="langField" placeholder="search ( by language )">
+			    <datalist id="lang-list">
+					<select>
+			    		<option ng-repeat="lang in home.langList track by $index" ng-value="lang">{{lang}}</option>
+			    	</select>
+			    </datalist>
+			    <label class="mdl-textfield__label" for="search-lang"></label>
+			  </div>
+			</div>
+			<div class="home__search__form__field">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label home__search__form__field__slider">
+				    <input ng-init="starRatingRange=500" class="mdl-slider mdl-js-slider" required type="range" min="0" max="1000" ng-model="starRating" value="500" tabindex="0">
+				</div>	
+				<span class="home__search__form__field__slider__value" ng-bind="starRating"></span>
+			</div>
+			<div class="home__search__form__field">
+				<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect home__search__form__field__btn">Search</button>
+			</div>
+		</form>
+		<!-- Colored mini FAB button -->
+		<div class="home__search__results">
+			<div data-ng-show="home.noProjectDataFlag" class="home__search__results__error">
+				<figure>
+					<img src="../../images/git404.jpg" alt="No project retrieved message">
+				</figure>	
+				<p class="home__search__results__error_msg">No data to show :(</p>
+			</div>
+			<!-- Card start -->
+			<project-card></project-card>
+			<!-- Card end -->
+			<div data-ng-hide="home.noProjectDataFlag" class="home__search__results__pagination">
+				<div data-ng-click="home.paginate()" class="home__search__results__pagination-btn mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Load more<i class="fa fa-spinner loader-spinner"></i></div>
+			</div>
+		</div>
+	</div>
+</div>

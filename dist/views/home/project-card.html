@@ -1,0 +1,20 @@
+<div class="mdl-card mdl-shadow--2dp home__search__results__card" data-ng-repeat="project in home.gitProjectData | limitTo:home.limitCount track by $index">
+  <div class="mdl-card__title home__search__results__card__title">
+    <h2 class="mdl-card__title-text">{{project.name}}</h2>
+  </div>
+  <div class="mdl-card__title home__search__results__card__img-container">
+    <div class="mdl-card__title-text"><span><img class="home__search__results__card__avatar" ng-src="{{project.owner.avatar_url}}" alt=""></div>
+  </div>
+  <div class="mdl-card__supporting-text">{{project.description}}</div>
+  <div class="mdl-card__actions mdl-card--border home__search__results__sub-menu">
+    <p class="home__search__results__sub-menu__item"><span><i class="fa fa-star"></i></span>{{project.watchers_count}}</p>
+    <p class="home__search__results__sub-menu__item"><span><i class="fa fa-eye"></i></span>{{project.stargazers_count}}</p>
+    <p class="home__search__results__sub-menu__item"><span><i class="fa fa-code-fork"></i></span>{{project.forks_count}}</p>
+    <p class="home__search__results__sub-menu__item">{{ project.language }}</p>
+    <p class="home__search__results__sub-menu__item"><span><i class="fa fa-calendar-o"></i></span>{{ project.created_at | date: shortDate }}</p>
+    <p></p>
+  </div>
+  <div class="mdl-card__menu">
+      <a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" ng-href="{{project.html_url}}" target="_blank" style="color:black !important;"><i class="fa fa-external-link"></i></a>
+  </div>
+</div>
