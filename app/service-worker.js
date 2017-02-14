@@ -16,10 +16,10 @@ let urlsToCache = [
   'https://code.getmdl.io/1.2.0/material.brown-red.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js',
-  'https://gitsearch-ebecb.firebaseapp.com/js/app.js',
-  'https://gitsearch-ebecb.firebaseapp.com/js/home.controller.js',
-  'https://gitsearch-ebecb.firebaseapp.com/js/appConfig.js',
-  'https://gitsearch-ebecb.firebaseapp.com/js/main.controller.js'
+  '/js/app.js',
+  '/js/home.controller.js',
+  '/js/appConfig.js',
+  '/js/main.controller.js'
 ];
 
 self.addEventListener('install', function (event) {
