@@ -25,15 +25,6 @@ gulp.task('default',['watch','sass'], function(){
 	gutil.log("Gulp is running");
 });
 
-/*gulp.task('index', function () {
-  var target = gulp.src('./app/index.html');
-
-  var sources = gulp.src(['./app/js/*.js','./css/*.css'], {read: false});
-
-  return target.pipe(inject(sources))
-               .pipe(gulp.dest('./app'));
-  });*/
-
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
