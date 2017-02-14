@@ -13,6 +13,7 @@ let urlsToCache = [
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://code.getmdl.io/1.2.0/material.min.js',
+  'https://code.getmdl.io/1.2.0/material.brown-red.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js',
   'https://gitsearch-ebecb.firebaseapp.com/js/app.js',
