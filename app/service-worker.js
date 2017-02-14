@@ -1,13 +1,12 @@
 console.log('Service worker has started');
 
-let CACHE_NAME = 'Lollypop-v1';
+let CACHE_NAME = 'Topgit-v1';
 let urlsToCache = [
   '/',
-  '/styles/style.css',
-  '/script/bundle.js',
-  '/assets/bgimg.png',
-  '/assets/git404.png',
-  'manifest.json',
+  '/css/style.css',
+  '/js/bundle.js',
+  '/images/bgimg.png',
+  '/images/git404.png',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0'
 ];
