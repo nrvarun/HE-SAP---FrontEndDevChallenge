@@ -26,7 +26,7 @@
     },
     {
       "src": "./images/launcher-icon-5x.png",
-      "sizes": "192x192",
+      "sizes": "384x384",
       "type": "image/png"
     }
   ],
