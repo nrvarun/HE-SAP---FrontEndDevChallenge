@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "gitsearch-31b88"
+    "default": "gitsearch-ebecb",
+    "git-search": "gitsearch-ebecb"
   }
 }
