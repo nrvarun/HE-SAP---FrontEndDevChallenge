@@ -5,17 +5,11 @@ let urlsToCache = [
   '/',
   '/styles/style.css',
   '/script/bundle.js',
-  '/assets/avatar.png',
-  '/assets/others1.png',
-  '/assets/others2.png',
-  '/assets/others3.png',
-  '/assets/others4.png',
+  '/assets/bgimg.png',
+  '/assets/git404.png',
   'manifest.json',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0',
-  'https://fonts.gstatic.com/s/robotoslab/v6/y7lebkjgREBJK96VQi37Zo4P5ICox8Kq3LLUNMylGO4.woff2',
-  'https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2',
-  'https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700'
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0'
 ];
 
 self.addEventListener('install', function (event) {
