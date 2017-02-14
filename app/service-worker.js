@@ -29,11 +29,12 @@ self.addEventListener('install', function (event) {
     caches.open(CACHE_NAME)
       .then(function (cache) {
         console.log('Opened cache');
-        return cache.addAll(urlsToCache,{ mode: 'no-cors' });
-      })
-      .then(()=>{
-        console.log('Installation successful');
-      })
+        return cache.addAll(urlsToCache.map(function(urlToPrefetch) {
+          return new Request(urlToPrefetch, { mode: 'no-cors' });
+        }))
+        .then(function() {
+          console.log('All resources have been fetched and cached.');
+        });
   );
 });
 
