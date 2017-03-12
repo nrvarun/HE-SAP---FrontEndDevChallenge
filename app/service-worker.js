@@ -5,10 +5,11 @@ let urlsToCache = [
   '/',
   'favicon.ico',
   '/css/style.css',
-  '/js/bundle.js',
+  '/css/material.brown-red.min.css',
   '/images/bgimg.png',
-  '/images/git404.png',
+  '/images/git404.jpg',
   'manifest.json',
+  'views/home.html',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
@@ -17,7 +18,8 @@ let urlsToCache = [
   '/js/app.js',
   '/js/home.controller.js',
   '/js/appConfig.js',
-  '/js/main.controller.js'
+  '/js/main.controller.js',
+  '/js/material.min.js'
 ];
 
 self.addEventListener('install', function (event) {
@@ -27,7 +29,7 @@ self.addEventListener('install', function (event) {
     caches.open(CACHE_NAME)
       .then(function (cache) {
         console.log('Opened cache');
-        return cache.addAll( urlsToCache, {mode: 'no-cors'});
+        return cache.addAll( urlsToCache);
       })
       .then(()=>{
         console.log('Installation successful');
@@ -36,20 +38,25 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  // Calling event.respondWith means we're in charge
-  // of providing the response. We pass in a promise
-  // that resolves with a response object
   event.respondWith(
-    // First we look for something in the caches that
-    // matches the request
-    caches.match(event.request).then(function(response) {
-      // If we get something, we return it, otherwise
-      // it's null, and we'll pass the request to
-      // fetch, which will use the network.
-      console.log('Fetching new requests');
-      return response || fetch(event.request);
-    })
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
   );
 });
 
-
+self.addEventListener('fetch', function(event) {
+  if (/\.jpg$/.test(event.request.url)) {
+    event.respondWith(
+      fetch('https://www.google.co.uk/logos/doodles/2014/60th-anniversary-of-the-unveiling-of-the-first-routemaster-bus-4922931108904960.3-hp.gif', {
+        mode: 'no-cors'
+      })
+    );
+  }
+});
